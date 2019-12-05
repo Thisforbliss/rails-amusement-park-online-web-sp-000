@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_221757) do
+ActiveRecord::Schema.define(version: 2019_12_05_231742) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_221757) do
     t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "admin"
+    t.boolean "admin", default: false
   end
 
 end

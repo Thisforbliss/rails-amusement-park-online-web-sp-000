@@ -6,14 +6,20 @@ class UsersController < ApplicationController
     
       def create
         @user = User.new(user_params)
-        return redirect_to controller: 'users', action: 'new' unless @user.save
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        #binding.pry
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to 'show'
+        else 
+          redirect_to 'new'
+        end 
       end
     
     def show
-        #binding.pry
-        @user = User.find(params[:id])
+      #binding.pry
+      if !current_user
+        redirect_to 'new'
+     end
     end
 
     def user_params

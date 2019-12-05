@@ -9,15 +9,14 @@ class SessionsController < ApplicationController
     def create
         #binding.pry
         @user = User.find_by(:name => params[:user][:name])
+        #binding.pry
             if @user
                 session[:user_id] = @user.id
-                redirect_to 'show'
+                redirect_to controller: 'users', action: 'show'
             else
                 render 'new'
             end
     end
     
-    def show
-
-    end
+   
 end
