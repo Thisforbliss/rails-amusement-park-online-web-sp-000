@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         #binding.pry
             if @user
                 session[:user_id] = @user.id
-                redirect_to controller: 'users', action: 'show'
+                redirect_to user_path(@user)
             else
                 render 'new'
             end

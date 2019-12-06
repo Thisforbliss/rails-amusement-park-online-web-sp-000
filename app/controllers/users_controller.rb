@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         #binding.pry
         if @user.save
           session[:user_id] = @user.id
-          redirect_to 'show'
+          redirect_to user_path(@user)
         else 
           redirect_to 'new'
         end 
@@ -17,9 +17,12 @@ class UsersController < ApplicationController
     
     def show
       #binding.pry
-      if !current_user
-        redirect_to 'new'
-     end
+      if logged_in?
+      @user = User.find_by(id: params[:id])
+      else
+        redirect_to "/"
+      end
+      
     end
 
     def user_params
