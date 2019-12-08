@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   post '/session',to: 'sessions#create' 
   root  'sessions#index'
   
-  resources :users
+  resources :users do
+    post  '/delete', to: 'sessions#destroy'
+  end
 end
