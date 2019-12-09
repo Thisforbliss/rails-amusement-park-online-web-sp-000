@@ -19,10 +19,10 @@ class SessionsController < ApplicationController
     def destroy
         if session[:name] == nil
             reset_session
-            redirect_to signin_path(@user)
+            redirect_to root_path
         elsif current_user
             reset_session
-            redirect_to signin_path(@user)
+            redirect_to root_path
         end
     end
     

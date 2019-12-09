@@ -6,4 +6,4 @@
 <%end%>
 <h1> Log Out </h1>
 
-<%= link_to @user.name, user_delete_path(@user) %>
+<%= link_to "Log Out", user_delete_path(@user), method: :post %>
