@@ -1,9 +1,10 @@
 
-<h1><%= @user.name %> </h1>
-<h1><%= @user.mood %> </h1>
+<h1><%= @user.name%> would like to See attractions Mood is <%=@user.mood%>. They have <%=@user.tickets%> and is <%=@user.height%> inches in height.</h1>
+<h1> </h1>
 <% if @user.admin == true %> 
 <%= "ADMIN" %>
 <%end%>
 <h1> Log Out </h1>
+<%= link_to "See attractions", attractions_path, method: :get %>
 
 <%= link_to "Log Out", user_delete_path(@user), method: :post %>
