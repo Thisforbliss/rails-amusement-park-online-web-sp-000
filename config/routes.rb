@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   get  '/signin' ,to: 'sessions#new'
   post '/session',to: 'sessions#create' 
   root  'sessions#index'
-  get '/attractions', to: 'rides#index', controller: :rides
-  #resources :rides, only: [:index]
-  
+  #get '/attractions', to: 'attractions#index', controller: :attractions
+  resources :attractions
   resources :users do
     post  '/delete', to: 'sessions#destroy'
   end
