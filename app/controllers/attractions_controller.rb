@@ -24,6 +24,18 @@ class AttractionsController < ApplicationController
       @attraction = Attraction.find_by(id: params[:id])
    end
 
+
+   def update
+      
+      @attraction = Attraction.find_by(id: params[:id])
+      if !@attraction.update(attraction_params)
+         edit_attraction_path
+      else
+         @attraction.update(attraction_params)
+         redirect_to attraction_path(@attraction)
+      end
+   end
+
    def attraction_params
       params.require(:attraction).permit(
       :name,
@@ -35,9 +47,7 @@ class AttractionsController < ApplicationController
       )
   end
 
-  def update
-   @attraction.update(attraction_params)
-  end
+  
 
 
 end
