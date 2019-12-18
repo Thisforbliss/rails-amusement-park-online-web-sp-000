@@ -16,13 +16,14 @@ class UsersController < ApplicationController
       end
     
     def show
-      #binding.pry
+      if params[:message]
+        @message = params[:message]
+      end
       if logged_in?
       @user = User.find_by(id: params[:id])
       else
         redirect_to "/"
-      end
-      
+      end  
     end
 
     def user_params
